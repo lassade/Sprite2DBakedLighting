@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class BakeSpritesLigthingEditor
+public static class BakeSpritesLigthingEditor
 {
     [MenuItem("Lighting/Prepare Sprites")]
     public static void PrepareSprites()
@@ -25,7 +25,9 @@ public class BakeSpritesLigthingEditor
                     SpriteRenderer spriteRenderer = node.GetComponent<SpriteRenderer>();
                     if (!spriteRenderer) continue;
 
-                    BakedLigthingSpriteData data = gameObject.AddComponent<BakedLigthingSpriteData>();
+                    // Create if not find a BakedLigthingSpriteData
+                    BakedLigthingSpriteData data = gameObject.GetComponent<BakedLigthingSpriteData>();
+                    if (!data) data = gameObject.AddComponent<BakedLigthingSpriteData>();
                     data.BuildMesh();
                 }
             }
@@ -48,7 +50,31 @@ public class BakeSpritesLigthingEditor
                     if (!data) continue;
                     data.TransferLightmapData();
                     data.Clear();
-                    GameObject.DestroyImmediate(data);
+                }
+            }
+        }
+
+        EditorSceneManager.MarkAllScenesDirty();
+    }
+
+    [MenuItem("Lighting/Log Sprites Light Data")]
+    public static void LogLightingSpriteData()
+    {
+        for (int i = 0; i < EditorSceneManager.loadedSceneCount; i++)
+        {
+            Scene scene = EditorSceneManager.GetSceneAt(i);
+            foreach (var root in scene.GetRootGameObjects())
+            {
+                foreach (var node in TraverseTransformTree(root.transform))
+                {
+                    GameObject gameObject = node.gameObject;
+                    StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags(gameObject);
+                    if ((flags & StaticEditorFlags.LightmapStatic) == 0) continue;
+
+                    SpriteRenderer spriteRenderer = node.GetComponent<SpriteRenderer>();
+                    if (!spriteRenderer) continue;
+
+                    Debug.Log(string.Format("Lightmap .Index = {0}; .ScaleOffset = {1}", spriteRenderer.lightmapIndex, spriteRenderer.lightmapScaleOffset));
                 }
             }
         }

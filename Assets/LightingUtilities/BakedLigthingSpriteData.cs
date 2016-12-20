@@ -1,13 +1,42 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections;
+using System.Diagnostics;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(SpriteRenderer))]
 public class BakedLigthingSpriteData : MonoBehaviour
 {
+    // Do not change any of these variables
+
     public GameObject content;
     public Mesh mesh;
+    public int lightmapIndex;
+    public Vector4 lightmapScaleOffset;
+
+    void Start()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.lightmapIndex = lightmapIndex;
+        spriteRenderer.lightmapScaleOffset = lightmapScaleOffset;
+
+        if (!content) return;
+
+        MeshRenderer renderer = content.GetComponent<MeshRenderer>();
+        Sprite sprite = spriteRenderer.sprite;
+
+        if (!sprite) return;
+
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+        block.SetTexture("_MainTex", sprite.texture);
+        block.SetColor("_Color", spriteRenderer.color);
+        renderer.SetPropertyBlock(block);
+        renderer.sharedMaterial = spriteRenderer.sharedMaterial;
+        renderer.sortingLayerID = spriteRenderer.sortingLayerID;
+        renderer.sortingOrder = spriteRenderer.sortingOrder;
+    }
     
+    [Conditional("UNITY_EDITOR")]
     public void BuildMesh()
     {
         if (content)
@@ -63,6 +92,7 @@ public class BakedLigthingSpriteData : MonoBehaviour
         filter.sharedMesh = mesh;
     }
     
+    [Conditional("UNITY_EDITOR")]
     public void Clear()
     {
         if (content)
@@ -80,7 +110,8 @@ public class BakedLigthingSpriteData : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
     }
-    
+
+    [Conditional("UNITY_EDITOR")]
     public void TransferLightmapData()
     {
         if (!content)
@@ -89,12 +120,17 @@ public class BakedLigthingSpriteData : MonoBehaviour
         }
 
         MeshRenderer renderer = content.GetComponent<MeshRenderer>();
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        // Save baked data!
+        lightmapIndex = renderer.lightmapIndex;
+        lightmapScaleOffset = renderer.lightmapScaleOffset;
 
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.lightmapScaleOffset = renderer.lightmapScaleOffset;
         spriteRenderer.lightmapIndex = renderer.lightmapIndex;
 
 #if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
         UnityEditor.EditorUtility.SetDirty(spriteRenderer);
 #endif
     }
