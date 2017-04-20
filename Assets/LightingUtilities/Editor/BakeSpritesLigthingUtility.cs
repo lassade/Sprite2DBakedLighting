@@ -84,10 +84,10 @@ public static class BakeSpritesLigthingEditor
 
     private static IEnumerable<Transform> TraverseTransformTree(Transform root)
     {
+        yield return root;
         for (int i = 0; i < root.childCount; i++)
         {
             Transform a = root.GetChild(i);
-            yield return a;
             foreach (var b in TraverseTransformTree(a))
             {
                 yield return b;
