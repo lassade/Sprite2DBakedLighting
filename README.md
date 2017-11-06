@@ -30,3 +30,7 @@ Use at your own risk, be smart and create a **backup** of all your work before u
 ### Demo
 
 You can see it working by open the scene demo scene an following the steps above. The demo uses a modified version of the [2D Platformer](https://www.assetstore.unity3d.com/en/#!/content/11228).
+
+### Updates
+
+Latest Unity builds changed the Sprites-Diffuse shader and removed the ligthmaps support, the new shader Custom/Sprites-Ligthmap adds this function back. Thanks Coresi7 for pointing it out and for providing the shader.
