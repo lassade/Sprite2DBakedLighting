@@ -34,3 +34,7 @@ You can see it working by open the scene demo scene an following the steps above
 ### Updates
 
 Latest Unity builds changed the Sprites-Diffuse shader and removed the ligthmaps support, the new shader Custom/Sprites-Ligthmap adds this function back. Thanks Coresi7 for pointing it out and for providing the shader.
+
+### TODO
+
+The baked lightmaps have too much redundant parts, this causes alot of video memory been used for the same parts of the static lighting. A possible fix for this maybe combine all the meshes into a single one, then spliting into multiple squares,
