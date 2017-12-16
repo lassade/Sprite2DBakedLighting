@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections;
 using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -78,9 +79,13 @@ public class BakedLigthingSpriteData : MonoBehaviour
             block.SetTexture("_MainTex", sprite.texture);
             block.SetColor("_Color", spriteRenderer.color);
             renderer.SetPropertyBlock(block);
+			// FIXME Unity now have an automatic way of figure out the sprites sortingOrder, down in the Graphics preferences (Transparency sorting mode?)
             renderer.sharedMaterial = spriteRenderer.sharedMaterial;
             renderer.sortingLayerID = spriteRenderer.sortingLayerID;
             renderer.sortingOrder = spriteRenderer.sortingOrder;
+			// Disable shadows for meshes
+			renderer.shadowCastingMode = ShadowCastingMode.Off;
+			renderer.receiveShadows = false;
 
             spriteRenderer.enabled = false;
 
@@ -111,7 +116,22 @@ public class BakedLigthingSpriteData : MonoBehaviour
         spriteRenderer.enabled = true;
     }
 
-    [Conditional("UNITY_EDITOR")]
+	#if UNITY_EDITOR
+	// This method will execute at every editor update event since the class have the ExecuteInEditMode attribute
+//	void Update()
+//	{
+//		if (Application.isPlaying) return;
+//		TransferLightmapData();
+//	}
+
+	private void OnRenderObject()
+	{
+		if (!Application.isPlaying) return;
+		TransferLightmapData();
+	}
+	#endif
+
+    
     public void TransferLightmapData()
     {
         if (!content)
