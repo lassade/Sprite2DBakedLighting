@@ -86,7 +86,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112000046, guid: 405347a2307cbb24591b8d082630649f,
+  m_LightingDataAsset: {fileID: 112000046, guid: 2ae1ee20bcf1a405084bf88ddce83530,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &5
@@ -357,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &225984962
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,6 +1315,7 @@ MonoBehaviour:
   mesh: {fileID: 0}
   lightmapIndex: -1
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1264599104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,6 +1331,7 @@ MonoBehaviour:
   mesh: {fileID: 0}
   lightmapIndex: -1
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1264599105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,8 +1345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 4
+  lightmapIndex: 6
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.49153647}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.4599373}
 --- !u!114 &1264599106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,8 +1361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 1
-  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.5036892}
+  lightmapIndex: 0
+  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.30033118}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.4599373}
 --- !u!114 &1264599107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,8 +1377,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 4
+  lightmapIndex: 6
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: -0.0017361111}
+  spriteOuterUV: {x: 0, y: 0.0018106041, z: 1, w: 0.49129704}
 --- !u!114 &1264599108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,8 +1393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 0
-  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.13108924}
+  lightmapIndex: 3
+  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.5019531}
+  spriteOuterUV: {x: 0, y: 0.0018106041, z: 1, w: 0.49129704}
 --- !u!114 &1264599109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,8 +1409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 2
+  lightmapIndex: 4
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: -0.027777778}
+  spriteOuterUV: {x: 0, y: 0.02790993, z: 1, w: 0.55889565}
 --- !u!114 &1264599110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,8 +1425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 7
+  lightmapIndex: 8
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: -0.027777778}
+  spriteOuterUV: {x: 0, y: 0.02790993, z: 1, w: 0.55889565}
 --- !u!114 &1264599111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,8 +1441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 1
+  lightmapIndex: 3
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.5012276}
 --- !u!114 &1264599112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,8 +1457,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 6
-  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.64605033}
+  lightmapIndex: 8
+  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.5332031}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.33669773}
 --- !u!114 &1264599113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,8 +1473,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 6
-  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  lightmapIndex: 7
+  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0.13996384}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.64396507}
 --- !u!114 &1264599114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,8 +1489,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 8
+  lightmapIndex: 1
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 0.840701}
 --- !u!114 &1264599115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,8 +1505,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 5
+  lightmapIndex: 2
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 1, w: 1}
 --- !u!114 &1264599116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,8 +1521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 0
-  lightmapScaleOffset: {x: 0.8832685, y: 0.8832685, z: -0.18458931, w: 0.078068614}
+  lightmapIndex: 1
+  lightmapScaleOffset: {x: 0.8832685, y: 0.8832685, z: -0.18458931, w: 0.20937812}
+  spriteOuterUV: {x: 0.20905872, y: 0.71714604, z: 0.96183974, w: 0.87313175}
 --- !u!114 &1264599117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,8 +1537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 0
-  lightmapScaleOffset: {x: 0.8832685, y: 0.8832685, z: -0.18458931, w: 0.21803242}
+  lightmapIndex: 7
+  lightmapScaleOffset: {x: 0.8832685, y: 0.8832685, z: -0.18458931, w: -0.63331574}
+  spriteOuterUV: {x: 0.20905872, y: 0.71714604, z: 0.96183974, w: 0.87313175}
 --- !u!212 &1264599118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2334,6 +2349,7 @@ MonoBehaviour:
   mesh: {fileID: 0}
   lightmapIndex: -1
   lightmapScaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  spriteOuterUV: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1738280910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,7 +2855,8 @@ MonoBehaviour:
   content: {fileID: 0}
   mesh: {fileID: 0}
   lightmapIndex: 0
-  lightmapScaleOffset: {x: 0.9082218, y: 0.9082218, z: -0.22173384, w: -0.16871482}
+  lightmapScaleOffset: {x: 0.9082218, y: 0.9082218, z: -0.22173384, w: 0.6806615}
+  spriteOuterUV: {x: 0.24421497, y: 0.18589604, z: 0.7548085, w: 0.32972896}
 --- !u!114 &2001442358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2853,8 +2870,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 3
+  lightmapIndex: 5
   lightmapScaleOffset: {x: 1, y: 1, z: 0.014453113, w: 0}
+  spriteOuterUV: {x: 0.3375, y: 0, z: 0.68750006, w: 1}
 --- !u!114 &2001442359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,8 +2886,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 3
+  lightmapIndex: 5
   lightmapScaleOffset: {x: 1, y: 1, z: -0.3375, w: 0}
+  spriteOuterUV: {x: 0.3375, y: 0, z: 0.68750006, w: 1}
 --- !u!114 &2001442360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,8 +2902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 7
-  lightmapScaleOffset: {x: 1.4988291, y: 1.4988291, z: -0.24980485, w: 0.11131048}
+  lightmapIndex: 0
+  lightmapScaleOffset: {x: 1.4988291, y: 1.4988291, z: -0.24980485, w: -0.42189264}
+  spriteOuterUV: {x: 0.16666667, y: 0.28148147, z: 0.8338542, w: 0.48055553}
 --- !u!114 &2001442361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2898,8 +2918,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 2
+  lightmapIndex: 4
   lightmapScaleOffset: {x: 1.731714, y: 1.731714, z: 0.39995992, w: -0.17516202}
+  spriteOuterUV: {x: 0.058333337, y: 0.53425926, z: 0.29687503, w: 0.6722222}
 --- !u!114 &2001442362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2913,8 +2934,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 2
+  lightmapIndex: 4
   lightmapScaleOffset: {x: 1.731714, y: 1.731714, z: -0.10101665, w: -0.17516202}
+  spriteOuterUV: {x: 0.058333337, y: 0.53425926, z: 0.29687503, w: 0.6722222}
 --- !u!114 &2001442363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,8 +2950,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 2
+  lightmapIndex: 4
   lightmapScaleOffset: {x: 1.1961612, y: 1.1961612, z: 0.4430375, w: 0.47339508}
+  spriteOuterUV: {x: 0.048437502, y: 0.05, z: 0.46562502, w: 0.22955914}
 --- !u!114 &2001442364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,8 +2966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   mesh: {fileID: 0}
-  lightmapIndex: 2
+  lightmapIndex: 4
   lightmapScaleOffset: {x: 1.1961612, y: 1.1961612, z: -0.057939053, w: 0.47339508}
+  spriteOuterUV: {x: 0.048437502, y: 0.05, z: 0.46562502, w: 0.22955914}
 --- !u!114 &2001442365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2959,7 +2983,8 @@ MonoBehaviour:
   content: {fileID: 0}
   mesh: {fileID: 0}
   lightmapIndex: 0
-  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: -0.29056877}
+  lightmapScaleOffset: {x: 1, y: 1, z: 0, w: -0.1525768}
+  spriteOuterUV: {x: 0, y: 0.9150627, z: 1, w: 1}
 --- !u!212 &2001442366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3231,7 +3256,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f8540bea7b77f4952adc2b7974912096, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.97794116, g: 0.32358348, b: 0.32358348, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

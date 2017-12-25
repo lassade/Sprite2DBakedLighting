@@ -14,20 +14,28 @@ public class BakedLigthingSpriteData : MonoBehaviour
     public Mesh mesh;
     public int lightmapIndex;
     public Vector4 lightmapScaleOffset;
+	public Vector4 spriteOuterUV;
+//	public Vector4 offset;
 
     void Start()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.lightmapIndex = lightmapIndex;
-        spriteRenderer.lightmapScaleOffset = lightmapScaleOffset;
+		Sprite sprite = spriteRenderer.sprite;
+
+		if (!sprite) return;
+
+//		var uv = UnityEngine.Sprites.DataUtility.GetOuterUV (spriteRenderer.sprite);
+//		offset.x = (uv.x - spriteOuterUV.x);
+//		offset.y = (uv.y - spriteOuterUV.y);
+//		offset.z = (uv.z / spriteOuterUV.z);
+//		offset.w = (uv.w / spriteOuterUV.w);
+
+		spriteRenderer.lightmapIndex = lightmapIndex;
+		spriteRenderer.lightmapScaleOffset = lightmapScaleOffset;
 
         if (!content) return;
 
         MeshRenderer renderer = content.GetComponent<MeshRenderer>();
-        Sprite sprite = spriteRenderer.sprite;
-
-        if (!sprite) return;
-
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         block.SetTexture("_MainTex", sprite.texture);
         block.SetColor("_Color", spriteRenderer.color);
@@ -36,6 +44,28 @@ public class BakedLigthingSpriteData : MonoBehaviour
         renderer.sortingLayerID = spriteRenderer.sortingLayerID;
         renderer.sortingOrder = spriteRenderer.sortingOrder;
     }
+
+//	void Update()
+//	{
+//		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+//		var uv = lightmapScaleOffset;
+//		uv.z += offset.x;
+//		uv.w += offset.y;
+//		uv.x *= offset.z;
+//		uv.y *= offset.w;
+//		spriteRenderer.lightmapScaleOffset = uv;
+//	}
+
+	void OnValidate()
+	{
+		// Saves the sprite outer uv
+		if (Application.isEditor && !Application.isPlaying) {
+			SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+			Sprite sprite = spriteRenderer.sprite;
+			if (!sprite) return;
+			spriteOuterUV = UnityEngine.Sprites.DataUtility.GetOuterUV (spriteRenderer.sprite);
+		}
+	}
     
     [Conditional("UNITY_EDITOR")]
     public void BuildMesh()

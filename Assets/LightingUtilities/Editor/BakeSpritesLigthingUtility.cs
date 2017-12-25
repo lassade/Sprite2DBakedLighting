@@ -3,11 +3,68 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 
 public static class BakeSpritesLigthingEditor
 {
+	public static string dataHolderPath 
+	{
+		get {
+			return BakeSpritesMeshExporter.dataHolderPath;
+		}
+	}
+
+	[MenuItem("Lighting/Export Packed Meshes")]
+	public static void ExportPackedMeshes()
+	{
+		EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo ();
+
+		BakeSpritesEditorDataHolder data = BakeSpritesEditorDataHolder.Create ();
+//		data.scenes.Clear ();
+//		data.sprites.Clear ();
+//		data.meshes.Clear ();
+		
+		for (int i = 0; i < EditorSceneManager.loadedSceneCount; i++)
+		{
+			Scene scene = EditorSceneManager.GetSceneAt(i);
+			data.scenes.Add (scene.path);
+
+			foreach (var root in scene.GetRootGameObjects())
+			{
+				foreach (var node in TraverseTransformTree(root.transform))
+				{
+					StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags(node.gameObject);
+					if ((flags & StaticEditorFlags.LightmapStatic) == 0) continue;
+
+					SpriteRenderer spriteRenderer = node.GetComponent<SpriteRenderer>();
+					if (!spriteRenderer) continue;
+
+					Sprite sprite = spriteRenderer.sprite;
+					if (!sprite) continue;
+
+					data.sprites.Add(sprite);
+				}
+			}
+		}
+
+		FileUtil.DeleteFileOrDirectory (dataHolderPath);
+		AssetDatabase.CreateAsset (data, dataHolderPath);
+		AssetDatabase.SaveAssets ();
+		AssetDatabase.Refresh ();
+
+		// Closes all current scenes
+		EditorSceneManager.NewScene (NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+		GameObject gameObject = new GameObject ("BakeSpritesMeshExporter");
+		var exporter = gameObject.AddComponent<BakeSpritesMeshExporter>();
+		exporter.dataHolder = data;
+
+		// Force atlas to be loaded
+		EditorApplication.isPlaying = true;
+	}
+
     [MenuItem("Lighting/Prepare Sprites")]
     public static void PrepareSprites()
     {
@@ -74,12 +131,11 @@ public static class BakeSpritesLigthingEditor
                     SpriteRenderer spriteRenderer = node.GetComponent<SpriteRenderer>();
                     if (!spriteRenderer) continue;
 
-                    Debug.Log(string.Format("Lightmap .Index = {0}; .ScaleOffset = {1}", spriteRenderer.lightmapIndex, spriteRenderer.lightmapScaleOffset));
+					Debug.LogFormat("{2} Lightmap .Index = {0}; .ScaleOffset = {1}",
+						spriteRenderer.lightmapIndex, spriteRenderer.lightmapScaleOffset, spriteRenderer.name);
                 }
             }
         }
-
-        EditorSceneManager.MarkAllScenesDirty();
     }
 
     private static IEnumerable<Transform> TraverseTransformTree(Transform root)

@@ -8,6 +8,17 @@ Pull Requests are welcomed!
 
 Use at your own risk, be smart and create a **backup** of all your work before using this code !!!
 
+### Sprite Atlas Support (Beta)
+
+I mananged to get the bake working with sprites packed using the new SpriteAtlas. To experiment with this feature
+use instead of using Lighting/Prepare Sprites in step 3 call the Lighting/Export Packed Meshes, let the editor
+do his thing, them folow the steps as usual. Notice that it may look strange outsite the play mode but will
+look right as soon as you hit play.
+
+Limitations:
+1. Looks strange when not oin play mode
+2. You can not use different SpriteAtlase that you used to bake the lighting. It may cause some problems
+
 ### Usage
 
 1. Set at least LightmapStatic if you want to bake the sprite lights;
