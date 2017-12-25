@@ -19,6 +19,8 @@ Limitations:
 1. Looks strange when not oin play mode
 2. You can not use different SpriteAtlase that you used to bake the lighting. It may cause some problems
 
+Please set the Sprite Packer mode in "Edit/Project Settings/Editor" to be "Always Enabled"
+
 ### Usage
 
 1. Set at least LightmapStatic if you want to bake the sprite lights;
